@@ -9,13 +9,13 @@
   <h1>cam2 Page</h1>
   <p>Some information goes here...</p>
   
-  <img id="videoElement" src="{{ url_for('video') }}" alt="Camera feed"><br>
+  <img id="videoElement" src="{{ url_for('side_arm') }}" alt="Camera feed"><br>
   <button onclick="startCamera()">Start Camera</button>
   <button onclick="stopCamera()">Stop Camera</button>
 
   <script>
     function startCamera() {
-      document.getElementById('videoElement').src = "{{ url_for('video') }}";
+      document.getElementById('videoElement').src = "{{ url_for('side_arm') }}";
     }
 
     function stopCamera() {

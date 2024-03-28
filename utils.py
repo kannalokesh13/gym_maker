@@ -24,3 +24,23 @@ def provide_feedback(angle, threshold):
     else:
         feedback = "Angle within range. Good job!"
     return feedback
+
+
+# Function to check if angles are within threshold range for side arm exercise
+def check_angles_for_posture_sidearm(left_elbow_angle, right_elbow_angle, left_body_angle, right_body_angle):
+    return (165 < left_elbow_angle < 180) and (165 < right_elbow_angle < 180) and (165 < left_body_angle < 180) and (165 < right_body_angle < 180)
+
+def check_for_upside_shoulder_sidearm(left_shoulder_angle, right_shoulder_angle):
+    return (80 < left_shoulder_angle < 95) and (80 < right_shoulder_angle < 95)
+
+def check_for_downside_shoulder_sidearm(left_shoulder_angle, right_shoulder_angle):
+    return (0 < left_shoulder_angle < 15) and (0 < right_shoulder_angle < 15)
+
+def check_for_threshold_sidearm(left_shoulder_angle, right_shoulder_angle):
+    return (10 < left_shoulder_angle < 90) and (10 < right_shoulder_angle < 90)
+
+def check_for_threshold_high_sidearm(left_shoulder_angle, right_shoulder_angle):
+    return (left_shoulder_angle > 90) and (right_shoulder_angle > 90)
+
+def check_for_threshold_low_sidearm(left_shoulder_angle, right_shoulder_angle):
+    return (left_shoulder_angle < 10) and (right_shoulder_angle < 10)
