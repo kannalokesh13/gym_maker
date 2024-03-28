@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cam1 Page</title>
+</head>
+<body>
+  <h1>cam1 Page</h1>
+  <p>Some information goes here...</p>
+  
+  <img id="videoElement" src=" " alt="Camera feed"><br>
+  <button onclick="startCamera()">Start Camera</button>
+  <button onclick="stopCamera()">Stop Camera</button>
+
+  <script>
+    function startCamera() {
+            fetch('/start_camera')
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    document.getElementById('videoElement').src = "{{ url_for('video') }}";
+                })
+                .catch(error => console.error('Error starting camera:', error));
+        }
+
+    function stopCamera() {
+        fetch('/stop_camera')
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error stopping camera:', error));
+            document.getElementById('videoElement').src = "";
+    }
+  </script>
+</body>
+</html>
