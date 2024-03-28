@@ -26,6 +26,37 @@ def provide_feedback(angle, threshold):
     return feedback
 
 
+# Calculating the angles for the hips and elbows
+def calculate_angle_h_e(a, b, c):
+    a = np.array(a)  # First
+    b = np.array(b)  # Mid
+    c = np.array(c)  # End
+
+    radians = np.arctan2(c[1]-b[1], c[0]-b[0]) - np.arctan2(a[1]-b[1], a[0]-b[0])
+    angle = np.abs(radians * 180.0 / np.pi)
+
+    if angle > 180.0:
+        angle = 360 - angle
+
+    return angle
+
+
+# Calculating the angles for the shoulder
+def calculate_angle_shoulder(a, b, c):
+    a = np.array(a)  # First
+    b = np.array(b)  # Mid
+    c = np.array(c)  # End
+
+    radians = np.arctan2(c[1]-b[1], c[0]-b[0]) - np.arctan2(a[1]-b[1], a[0]-b[0])
+    angle = np.abs(radians * 180.0 / np.pi)
+
+    # if angle > 180.0:
+    #     angle = 360 - angle
+
+    return angle
+
+
+
 # Function to check if angles are within threshold range for side arm exercise
 def check_angles_for_posture_sidearm(left_elbow_angle, right_elbow_angle, left_body_angle, right_body_angle):
     return (165 < left_elbow_angle < 180) and (165 < right_elbow_angle < 180) and (165 < left_body_angle < 180) and (165 < right_body_angle < 180)
@@ -44,3 +75,41 @@ def check_for_threshold_high_sidearm(left_shoulder_angle, right_shoulder_angle):
 
 def check_for_threshold_low_sidearm(left_shoulder_angle, right_shoulder_angle):
     return (left_shoulder_angle < 10) and (right_shoulder_angle < 10)
+
+
+
+# Function to check if angles are within threshold range for arm up raise
+def check_angles_for_posture_upraise(left_elbow_angle, right_elbow_angle, left_body_angle, right_body_angle):
+    return (165 < left_elbow_angle < 180) and (165 < right_elbow_angle < 180) and (165 < left_body_angle < 180) and (165 < right_body_angle < 180)
+
+def check_for_upside_shoulder_upraise(left_shoulder_angle, right_shoulder_angle):
+    return (165 < left_shoulder_angle < 180) and (165 < right_shoulder_angle < 180)
+
+def check_for_downside_shoulder_upraise(left_shoulder_angle, right_shoulder_angle):
+    return (0 < left_shoulder_angle < 15) and (0 < right_shoulder_angle < 15)
+
+def check_for_threshold_upraise(left_shoulder_angle, right_shoulder_angle):
+    return (10 < left_shoulder_angle < 170) and (10 < right_shoulder_angle < 170)
+
+def check_for_threshold_high_upraise(left_shoulder_angle, right_shoulder_angle):
+    return (left_shoulder_angle > 180) and (right_shoulder_angle > 180)
+
+def check_for_threshold_low_upraise(left_shoulder_angle, right_shoulder_angle):
+    return (left_shoulder_angle < 10) and (right_shoulder_angle < 10)
+
+
+# Function to calculate angle for wall sit
+def calc_angle(a, b, c):
+    a = np.array(a)
+    b = np.array(b)
+    c = np.array(c)
+    radians = np.arctan2(c[1]-b[1], c[0]-b[0]) - np.arctan2(a[1]-b[1], a[0]-b[0])
+    angle = np.abs(radians*180.0/np.pi)
+    if angle > 180.0:
+        angle = 360 - angle
+    return angle
+
+# Function to check if angles are within the specified range for wall sit
+def check_angles_in_range_for_wallsit(left_hip_angle, right_hip_angle, left_knee_angle, right_knee_angle):
+    return (75 < left_hip_angle < 90) and (75 < right_hip_angle < 90) and (75 < left_knee_angle < 90) and (75 < right_knee_angle < 90)
+
