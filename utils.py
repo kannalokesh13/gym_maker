@@ -113,3 +113,22 @@ def calc_angle(a, b, c):
 def check_angles_in_range_for_wallsit(left_hip_angle, right_hip_angle, left_knee_angle, right_knee_angle):
     return (75 < left_hip_angle < 90) and (75 < right_hip_angle < 90) and (75 < left_knee_angle < 90) and (75 < right_knee_angle < 90)
 
+
+# Function to check if angles are within threshold range for leg raise
+def check_angles_for_posture_legraise(left_elbow_angle, right_elbow_angle, left_knee_angle, right_knee_angle):
+    return (165 < left_elbow_angle < 180) and (165 < right_elbow_angle < 180) and (165 < left_knee_angle < 180) and (165 < right_knee_angle < 180)
+
+def check_for_upside_body_legraise(left_body_angle, right_body_angle):
+    return (70 < left_body_angle < 120) and (70 < right_body_angle < 120)
+
+def check_for_downside_body_legraise(left_body_angle, right_body_angle):
+    return (160 < left_body_angle < 180) and (160 < right_body_angle < 180)
+
+def check_for_threshold_leagraise(left_body_angle, right_body_angle):
+    return (70 < left_body_angle < 180) and (70 < right_body_angle < 180)
+
+def check_for_threshold_high_legraise(left_body_angle, right_body_angle):
+    return (left_body_angle > 180) and (right_body_angle > 180)
+
+def check_for_threshold_low_legraise(left_body_angle, right_body_angle):
+    return (left_body_angle < 70) and (right_body_angle < 70)

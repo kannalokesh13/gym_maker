@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cam5 Page</title>
+</head>
+<body>
+  <h1>cam5 Page</h1>
+  <p>Some information goes here...</p>
+  
+  <img id="videoElement" src="{{ url_for('plank_video') }}" alt="Camera feed"><br>
+  <button onclick="startCamera()">Start Camera</button>
+  <button onclick="stopCamera()">Stop Camera</button>
+
+  <script>
+    function startCamera() {
+      document.getElementById('videoElement').src = "{{ url_for('plank_video') }}";
+    }
+
+    function stopCamera() {
+      document.getElementById('videoElement').src = "";
+    }
+  </script>
+</body>
+</html>

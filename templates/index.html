@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webcam Interface</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   <style>
     /* Add your CSS styles here */
     .card {
@@ -23,39 +24,70 @@
   </style>
 </head>
 <body>
-  <!-- for card 1  -->
-  <div class="card">
-    <img src="card1-image.jpg" alt="Card 1 Image">
-    <h2>Card 1</h2>
-    <p>Card 1 Information</p>
-    <a href="/cam1"><button>Go to cam1</button></a>
-  </div>
+  <header>
+    <h1>AI Fitness Trainer</h1>
+</header>
+<main>
+  <div class="cards-wrapper">
+    <div class="card-container">
+      <!-- first row -->
+      <!-- for card 1  -->
+      <div class="card">
+        <img src="/static/images/arm_curl.jpg" alt="Card 1 Image">
+        <h2>Arm Curl</h2>
+        <p>
+          The arm curl exercise targets the biceps muscles by flexing the elbow joint while holding a weight.</p>
+        <a href="/cam1"><button>Go to cam1</button></a>
+      </div>
 
-  <!-- for card 2 -->
-  <!-- Repeat the above div for three more cards -->
-  <div class="card">
-    <img src="card2-image.jpg" alt="Card 2 Image">
-    <h2>Card 2</h2>
-    <p>Card 2 Information</p>
-    <a href="/camera"><button>Go to cam2</button></a>
-  </div>
+      <!-- for card 2 -->
+      <!-- Repeat the above div for three more cards -->
+      <div class="card">
+        <img src="/static/images/side_arm_raise.webp" alt="Card 2 Image">
+        <h2>Side Arm Raise</h2>
+        <p>The side arm raise exercise targets the shoulder muscles by lifting the arms laterally to shoulder height or slightly above, with palms facing downwards or forwards.</p>
+        <a href="/camera"><button>Go to cam2</button></a>
+      </div>
 
-  <!-- for card 3 -->
-  <!-- Repeat the above div for three more cards -->
-  <div class="card">
-    <img src="card3-image.jpg" alt="Card 3 Image">
-    <h2>Card 3</h2>
-    <p>Card 3 Information</p>
-    <a href="/up_arm"><button>Go to cam3</button></a>
-  </div>
+      <!-- for card 3 -->
+      <!-- Repeat the above div for three more cards -->
+      <div class="card">
+        <img src="/static/images/arm_up_raise.webp" alt="Card 3 Image">
+        <h2>Arm Up Raise</h2>
+        <p>The arm up raise exercise targets the deltoids by lifting the arms vertically overhead from a starting position at the sides of the body.</p>
+        <a href="/up_arm"><button>Go to cam3</button></a>
+      </div>
+    </div>
 
-  <!-- for card 4 -->
-  <!-- Repeat the above div for three more cards -->
-  <div class="card">
-    <img src="card4-image.jpg" alt="Card 4 Image">
-    <h2>Card 4</h2>
-    <p>Card 4 Information</p>
-    <a href="/wall_sit"><button>Go to cam4</button></a>
-  </div>
+        <div class="card-contianer">
+          <!-- second row -->
+
+          <!-- for card 4 -->
+          <!-- Repeat the above div for three more cards -->
+          <div class="card">
+            <img src="/static/images/wall_sit.jpg" alt="Card 4 Image">
+            <h2>Wall Sit</h2>
+            <p>The wall sit exercise involves holding a seated position with the back against a wall, targeting the quadriceps and glutes.</p>
+            <a href="/wall_sit"><button>Go to cam4</button></a>
+          </div>
+          
+          <div class="card">
+            <img src="" alt="Card 4 Image">
+            <h2>Plank</h2>
+            <p>The Plank involves holding a seated position with the back against a wall, targeting the quadriceps and glutes.</p>
+            <a href="/plank"><button>Go to cam5</button></a>
+          </div>
+
+          <div class="card">
+            <img src="" alt="Card 4 Image">
+            <h2>leg raise</h2>
+            <p>The leg raise exercise holding a seated position with the back against a wall, targeting the quadriceps and glutes.</p>
+            <a href="/leg_raise"><button>Go to cam6</button></a>
+          </div>
+          
+        </div>
+</div>
+
+</main>
 </body>
 </html>
