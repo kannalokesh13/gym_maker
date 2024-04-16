@@ -119,30 +119,20 @@ def generate_frames():
             except:
                 pass
 
-            # Render curl counter
-            # Setup status box
-            cv2.rectangle(image, (0,0), (225,73), (245,117,16), -1)
+           
             
-            # Rep data
-            cv2.putText(image, 'REPS', (15,12), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 1, cv2.LINE_AA)
-            cv2.putText(image, str(counter), 
-                        (10,60), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
+            cv2.putText(image, "Correct Exercises: " + str(correct_counter), (25, 25), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 0), 2, cv2.LINE_AA)
+            cv2.putText(image, "Incorrect Exercises: " + str(incorrect_counter), (25, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 2, cv2.LINE_AA)
             
-            # Stage data
-            cv2.putText(image, 'STAGE', (65,12), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 1, cv2.LINE_AA)
-            cv2.putText(image, stage, 
-                        (60,60), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 2, (255,255,255), 2, cv2.LINE_AA)
+            
+            
             # Render detections
             mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
                                     mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=2), 
                                     mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2) 
                                     )               
             # Display feedback on frame
-            cv2.putText(image, feedback, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+            cv2.putText(image, feedback, (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
 
 
             
@@ -674,7 +664,7 @@ def generate_frames_for_plank():
                 
 
                 # Check if angles are in the specified range for both hips and knees
-                if check_angles_in_range(left_elbow_angle, right_elbow_angle, left_body_angle, right_body_angle,left_shoulder_angle,right_shoulder):
+                if check_angles_in_range_for_plank(left_elbow_angle, right_elbow_angle, left_body_angle, right_body_angle,left_shoulder_angle,right_shoulder):
                     if is_paused:
                         # Adjust start time based on paused time
                         start_time += (time.time() - paused_time)
@@ -720,22 +710,21 @@ def generate_frames_for_plank():
                 # Body Corrections
             
                 if 75 < left_elbow_angle < 95 and 75 < right_elbow_angle < 95:
-                    cv2.putText(image, "good", (25,25), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 0), 2, cv2.LINE_AA)
+                    cv2.putText(image, "good for elbow", (25,75), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 0), 2, cv2.LINE_AA)
                 else:
-                    cv2.putText(image, "make proper angle.", (25,25), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 0), 2, cv2.LINE_AA)
+                    cv2.putText(image, "make proper angle for elbow.", (25,75), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 0), 2, cv2.LINE_AA)
                     
                 if 160 < left_body_angle < 180 and 160 < right_body_angle < 180:
-                    cv2.putText(image, "good", (25,50), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 0), 2, cv2.LINE_AA)
+                    cv2.putText(image, "good for hip", (25,100), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 255, 0), 2, cv2.LINE_AA)
                 else:
-                    cv2.putText(image, "Straighten your body.", (25,50), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 0), 2, cv2.LINE_AA)
+                    cv2.putText(image, "Straighten your body.", (25,100), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 0), 2, cv2.LINE_AA)
 
 
                 if 75 < right_shoulder_angle < 95 and 75 < left_shoulder_angle < 95 :
-                    cv2.putText(image, "Good.", (25,75), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 2, cv2.LINE_AA)
+                    cv2.putText(image, "Good for shoulder.", (25,125), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 2, cv2.LINE_AA)
                 else:
-                    cv2.putText(image, "make proper angle.", (25,75), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 2, cv2.LINE_AA)
-
-
+                    cv2.putText(image, "make proper angle for shoulders.", (25,125), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 255), 2, cv2.LINE_AA)
+            
             except:
                 pass
 

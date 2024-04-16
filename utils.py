@@ -83,16 +83,16 @@ def check_angles_for_posture_upraise(left_elbow_angle, right_elbow_angle, left_b
     return (165 < left_elbow_angle < 180) and (165 < right_elbow_angle < 180) and (165 < left_body_angle < 180) and (165 < right_body_angle < 180)
 
 def check_for_upside_shoulder_upraise(left_shoulder_angle, right_shoulder_angle):
-    return (165 < left_shoulder_angle < 180) and (165 < right_shoulder_angle < 180)
+    return (165 < left_shoulder_angle < 185) and (165 < right_shoulder_angle < 185)
 
 def check_for_downside_shoulder_upraise(left_shoulder_angle, right_shoulder_angle):
     return (0 < left_shoulder_angle < 15) and (0 < right_shoulder_angle < 15)
 
 def check_for_threshold_upraise(left_shoulder_angle, right_shoulder_angle):
-    return (10 < left_shoulder_angle < 170) and (10 < right_shoulder_angle < 170)
+    return (10 < left_shoulder_angle < 185) and (10 < right_shoulder_angle < 185)
 
 def check_for_threshold_high_upraise(left_shoulder_angle, right_shoulder_angle):
-    return (left_shoulder_angle > 180) and (right_shoulder_angle > 180)
+    return (left_shoulder_angle > 185) and (right_shoulder_angle > 185)
 
 def check_for_threshold_low_upraise(left_shoulder_angle, right_shoulder_angle):
     return (left_shoulder_angle < 10) and (right_shoulder_angle < 10)
@@ -132,3 +132,9 @@ def check_for_threshold_high_legraise(left_body_angle, right_body_angle):
 
 def check_for_threshold_low_legraise(left_body_angle, right_body_angle):
     return (left_body_angle < 70) and (right_body_angle < 70)
+
+
+#to check for the given range for plank
+def check_angles_in_range_for_plank(left_elbow_angle, right_elbow_angle, left_body_angle, right_body_angle,left_shoulder_angle,right_shoulder):
+    return (75 < left_elbow_angle < 95) and (75 < right_elbow_angle < 95) and (75 < left_shoulder_angle < 95) and (75 < right_shoulder_angle < 95) and (160 < left_body_angle <180) and (160 < right_body_angle < 180)
+
